@@ -1,0 +1,324 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    UNKNOWN
+
+Grammar
+
+Rule 0     S' -> texto
+Rule 1     texto -> frase_presenteSimple texto
+Rule 2     texto -> frase_pasadoSimple texto
+Rule 3     texto -> frase_pasadoContinuo texto
+Rule 4     texto -> empty
+Rule 5     frase_presenteSimple -> SUBJECT VERB_Spresent predicated
+Rule 6     frase_pasadoContinuo -> SUBJECT VERB_pastToBe VERB_Contpast predicated
+Rule 7     frase_pasadoSimple -> SUBJECT VERB_Spast predicated
+Rule 8     predicated -> WORDOPT predicated
+Rule 9     predicated -> WORDOPT
+Rule 10    WORDOPT -> WORD
+Rule 11    WORDOPT -> empty
+Rule 12    empty -> <empty>
+
+Terminals, with rules where they appear
+
+SUBJECT              : 5 6 7
+UNKNOWN              : 
+VERB_Contpast        : 6
+VERB_Spast           : 7
+VERB_Spresent        : 5
+VERB_pastToBe        : 6
+WORD                 : 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+WORDOPT              : 8 9
+empty                : 4 11
+frase_pasadoContinuo : 3
+frase_pasadoSimple   : 2
+frase_presenteSimple : 1
+predicated           : 5 6 7 8
+texto                : 1 2 3 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . texto
+    (1) texto -> . frase_presenteSimple texto
+    (2) texto -> . frase_pasadoSimple texto
+    (3) texto -> . frase_pasadoContinuo texto
+    (4) texto -> . empty
+    (5) frase_presenteSimple -> . SUBJECT VERB_Spresent predicated
+    (7) frase_pasadoSimple -> . SUBJECT VERB_Spast predicated
+    (6) frase_pasadoContinuo -> . SUBJECT VERB_pastToBe VERB_Contpast predicated
+    (12) empty -> .
+
+    SUBJECT         shift and go to state 6
+    $end            reduce using rule 12 (empty -> .)
+
+    texto                          shift and go to state 1
+    frase_presenteSimple           shift and go to state 2
+    frase_pasadoSimple             shift and go to state 3
+    frase_pasadoContinuo           shift and go to state 4
+    empty                          shift and go to state 5
+
+state 1
+
+    (0) S' -> texto .
+
+
+
+state 2
+
+    (1) texto -> frase_presenteSimple . texto
+    (1) texto -> . frase_presenteSimple texto
+    (2) texto -> . frase_pasadoSimple texto
+    (3) texto -> . frase_pasadoContinuo texto
+    (4) texto -> . empty
+    (5) frase_presenteSimple -> . SUBJECT VERB_Spresent predicated
+    (7) frase_pasadoSimple -> . SUBJECT VERB_Spast predicated
+    (6) frase_pasadoContinuo -> . SUBJECT VERB_pastToBe VERB_Contpast predicated
+    (12) empty -> .
+
+    SUBJECT         shift and go to state 6
+    $end            reduce using rule 12 (empty -> .)
+
+    frase_presenteSimple           shift and go to state 2
+    texto                          shift and go to state 7
+    frase_pasadoSimple             shift and go to state 3
+    frase_pasadoContinuo           shift and go to state 4
+    empty                          shift and go to state 5
+
+state 3
+
+    (2) texto -> frase_pasadoSimple . texto
+    (1) texto -> . frase_presenteSimple texto
+    (2) texto -> . frase_pasadoSimple texto
+    (3) texto -> . frase_pasadoContinuo texto
+    (4) texto -> . empty
+    (5) frase_presenteSimple -> . SUBJECT VERB_Spresent predicated
+    (7) frase_pasadoSimple -> . SUBJECT VERB_Spast predicated
+    (6) frase_pasadoContinuo -> . SUBJECT VERB_pastToBe VERB_Contpast predicated
+    (12) empty -> .
+
+    SUBJECT         shift and go to state 6
+    $end            reduce using rule 12 (empty -> .)
+
+    frase_pasadoSimple             shift and go to state 3
+    texto                          shift and go to state 8
+    frase_presenteSimple           shift and go to state 2
+    frase_pasadoContinuo           shift and go to state 4
+    empty                          shift and go to state 5
+
+state 4
+
+    (3) texto -> frase_pasadoContinuo . texto
+    (1) texto -> . frase_presenteSimple texto
+    (2) texto -> . frase_pasadoSimple texto
+    (3) texto -> . frase_pasadoContinuo texto
+    (4) texto -> . empty
+    (5) frase_presenteSimple -> . SUBJECT VERB_Spresent predicated
+    (7) frase_pasadoSimple -> . SUBJECT VERB_Spast predicated
+    (6) frase_pasadoContinuo -> . SUBJECT VERB_pastToBe VERB_Contpast predicated
+    (12) empty -> .
+
+    SUBJECT         shift and go to state 6
+    $end            reduce using rule 12 (empty -> .)
+
+    frase_pasadoContinuo           shift and go to state 4
+    texto                          shift and go to state 9
+    frase_presenteSimple           shift and go to state 2
+    frase_pasadoSimple             shift and go to state 3
+    empty                          shift and go to state 5
+
+state 5
+
+    (4) texto -> empty .
+
+    $end            reduce using rule 4 (texto -> empty .)
+
+
+state 6
+
+    (5) frase_presenteSimple -> SUBJECT . VERB_Spresent predicated
+    (7) frase_pasadoSimple -> SUBJECT . VERB_Spast predicated
+    (6) frase_pasadoContinuo -> SUBJECT . VERB_pastToBe VERB_Contpast predicated
+
+    VERB_Spresent   shift and go to state 10
+    VERB_Spast      shift and go to state 11
+    VERB_pastToBe   shift and go to state 12
+
+
+state 7
+
+    (1) texto -> frase_presenteSimple texto .
+
+    $end            reduce using rule 1 (texto -> frase_presenteSimple texto .)
+
+
+state 8
+
+    (2) texto -> frase_pasadoSimple texto .
+
+    $end            reduce using rule 2 (texto -> frase_pasadoSimple texto .)
+
+
+state 9
+
+    (3) texto -> frase_pasadoContinuo texto .
+
+    $end            reduce using rule 3 (texto -> frase_pasadoContinuo texto .)
+
+
+state 10
+
+    (5) frase_presenteSimple -> SUBJECT VERB_Spresent . predicated
+    (8) predicated -> . WORDOPT predicated
+    (9) predicated -> . WORDOPT
+    (10) WORDOPT -> . WORD
+    (11) WORDOPT -> . empty
+    (12) empty -> .
+
+  ! shift/reduce conflict for WORD resolved as shift
+    WORD            shift and go to state 15
+    SUBJECT         reduce using rule 12 (empty -> .)
+    $end            reduce using rule 12 (empty -> .)
+
+  ! WORD            [ reduce using rule 12 (empty -> .) ]
+
+    predicated                     shift and go to state 13
+    WORDOPT                        shift and go to state 14
+    empty                          shift and go to state 16
+
+state 11
+
+    (7) frase_pasadoSimple -> SUBJECT VERB_Spast . predicated
+    (8) predicated -> . WORDOPT predicated
+    (9) predicated -> . WORDOPT
+    (10) WORDOPT -> . WORD
+    (11) WORDOPT -> . empty
+    (12) empty -> .
+
+  ! shift/reduce conflict for WORD resolved as shift
+    WORD            shift and go to state 15
+    SUBJECT         reduce using rule 12 (empty -> .)
+    $end            reduce using rule 12 (empty -> .)
+
+  ! WORD            [ reduce using rule 12 (empty -> .) ]
+
+    predicated                     shift and go to state 17
+    WORDOPT                        shift and go to state 14
+    empty                          shift and go to state 16
+
+state 12
+
+    (6) frase_pasadoContinuo -> SUBJECT VERB_pastToBe . VERB_Contpast predicated
+
+    VERB_Contpast   shift and go to state 18
+
+
+state 13
+
+    (5) frase_presenteSimple -> SUBJECT VERB_Spresent predicated .
+
+    SUBJECT         reduce using rule 5 (frase_presenteSimple -> SUBJECT VERB_Spresent predicated .)
+    $end            reduce using rule 5 (frase_presenteSimple -> SUBJECT VERB_Spresent predicated .)
+
+
+state 14
+
+    (8) predicated -> WORDOPT . predicated
+    (9) predicated -> WORDOPT .
+    (8) predicated -> . WORDOPT predicated
+    (9) predicated -> . WORDOPT
+    (10) WORDOPT -> . WORD
+    (11) WORDOPT -> . empty
+    (12) empty -> .
+
+  ! shift/reduce conflict for WORD resolved as shift
+  ! reduce/reduce conflict for SUBJECT resolved using rule 9 (predicated -> WORDOPT .)
+  ! reduce/reduce conflict for $end resolved using rule 9 (predicated -> WORDOPT .)
+    SUBJECT         reduce using rule 9 (predicated -> WORDOPT .)
+    $end            reduce using rule 9 (predicated -> WORDOPT .)
+    WORD            shift and go to state 15
+
+  ! WORD            [ reduce using rule 12 (empty -> .) ]
+  ! SUBJECT         [ reduce using rule 12 (empty -> .) ]
+  ! $end            [ reduce using rule 12 (empty -> .) ]
+
+    WORDOPT                        shift and go to state 14
+    predicated                     shift and go to state 19
+    empty                          shift and go to state 16
+
+state 15
+
+    (10) WORDOPT -> WORD .
+
+    WORD            reduce using rule 10 (WORDOPT -> WORD .)
+    SUBJECT         reduce using rule 10 (WORDOPT -> WORD .)
+    $end            reduce using rule 10 (WORDOPT -> WORD .)
+
+
+state 16
+
+    (11) WORDOPT -> empty .
+
+    WORD            reduce using rule 11 (WORDOPT -> empty .)
+    SUBJECT         reduce using rule 11 (WORDOPT -> empty .)
+    $end            reduce using rule 11 (WORDOPT -> empty .)
+
+
+state 17
+
+    (7) frase_pasadoSimple -> SUBJECT VERB_Spast predicated .
+
+    SUBJECT         reduce using rule 7 (frase_pasadoSimple -> SUBJECT VERB_Spast predicated .)
+    $end            reduce using rule 7 (frase_pasadoSimple -> SUBJECT VERB_Spast predicated .)
+
+
+state 18
+
+    (6) frase_pasadoContinuo -> SUBJECT VERB_pastToBe VERB_Contpast . predicated
+    (8) predicated -> . WORDOPT predicated
+    (9) predicated -> . WORDOPT
+    (10) WORDOPT -> . WORD
+    (11) WORDOPT -> . empty
+    (12) empty -> .
+
+  ! shift/reduce conflict for WORD resolved as shift
+    WORD            shift and go to state 15
+    SUBJECT         reduce using rule 12 (empty -> .)
+    $end            reduce using rule 12 (empty -> .)
+
+  ! WORD            [ reduce using rule 12 (empty -> .) ]
+
+    predicated                     shift and go to state 20
+    WORDOPT                        shift and go to state 14
+    empty                          shift and go to state 16
+
+state 19
+
+    (8) predicated -> WORDOPT predicated .
+
+    SUBJECT         reduce using rule 8 (predicated -> WORDOPT predicated .)
+    $end            reduce using rule 8 (predicated -> WORDOPT predicated .)
+
+
+state 20
+
+    (6) frase_pasadoContinuo -> SUBJECT VERB_pastToBe VERB_Contpast predicated .
+
+    SUBJECT         reduce using rule 6 (frase_pasadoContinuo -> SUBJECT VERB_pastToBe VERB_Contpast predicated .)
+    $end            reduce using rule 6 (frase_pasadoContinuo -> SUBJECT VERB_pastToBe VERB_Contpast predicated .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for WORD in state 10 resolved as shift
+WARNING: shift/reduce conflict for WORD in state 11 resolved as shift
+WARNING: shift/reduce conflict for WORD in state 14 resolved as shift
+WARNING: shift/reduce conflict for WORD in state 18 resolved as shift
+WARNING: reduce/reduce conflict in state 14 resolved using rule (predicated -> WORDOPT)
+WARNING: rejected rule (empty -> <empty>) in state 14
